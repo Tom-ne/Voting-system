@@ -1,26 +1,21 @@
 #pragma once
-#include <string>
-#include <unordered_map>
-#include <vector>
-#include "Answer.h"
+#include "Response.h"
+#include <memory>
 
 class Block
 {
 public:
-	Block(int index, std::vector<Answer> answers, const std::uint64_t timestamp, const std::string& previousHash, const std::string& signature);
+	Block(std::unique_ptr<Response>& response);
+	Block(std::unique_ptr<Response>& response, const std::string previousHash);
 
-	const std::string calculateHash() const;
-	const int getIndex() const;
-	const std::uint64_t getTimestamp() const;
-	const std::vector<Answer>& getAnswers() const;
-	const std::string& getHash() const;
-	const std::string& getPreviousHash() const;
+	void setTimestamp(uint64_t timestamp);
+	const std::string hash() const;
+	uint64_t getTimestamp() const;
+
+	std::string getPreviousHash() const;
 private:
-	int index;
-	std::vector<Answer> answers;
-	std::uint64_t timestamp;
+	Response response;
+	uint64_t timestamp;
 	std::string previousHash;
-	std::string signature;
-	std::string hash;
 };
 
