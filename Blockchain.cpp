@@ -21,10 +21,6 @@ void Blockchain::createBlock(std::unique_ptr<Response> response)
 
 	auto newBlock = std::make_unique<Block>(response, previousBlock.hash());
 	newBlock->setTimestamp(currentTime);
-	// print the hash of the new block for debugging
-	std::cout << "Creating new block with hash: " << newBlock->hash() << std::endl;
-	std::cout << "Previous block hash: " << previousBlock.hash() << std::endl;
-	std::cout << response->toJson() << std::endl;
 	this->blocks.push_back(std::move(newBlock));
 }
 
