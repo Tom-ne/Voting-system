@@ -105,10 +105,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>D:\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\OpenSSL-Win64\lib\VC\x64\MTd;D:\OpenSSL-Win64\lib\VC\x64\MT;D:\OpenSSL-Win64\lib\VC\x64\MDd;D:\OpenSSL-Win64\lib\VC\x64\MD;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libssl.lib;libcrypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -128,20 +131,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Answer.cpp" />
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Blockchain.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Question.cpp" />
+    <ClCompile Include="Response.cpp" />
     <ClCompile Include="SHA256.cpp" />
     <ClCompile Include="SHA256.h" />
     <ClCompile Include="Survey.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Answer.h" />
-    <ClInclude Include="Block.h" />
-    <ClInclude Include="Survey.h" />
+    <ClCompile Include="VerifingUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Block.h" />
+    <ClInclude Include="Blockchain.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="Question.h" />
+    <ClInclude Include="Response.h" />
+    <ClInclude Include="Survey.h" />
+    <ClInclude Include="SurveyMetadata.h" />
+    <ClInclude Include="VerifingUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
