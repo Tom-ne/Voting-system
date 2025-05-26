@@ -7,7 +7,7 @@ class Blockchain
 public:
 	Blockchain();
 
-	void createBlock(std::unique_ptr<Response>& response);
+	void createBlock(std::unique_ptr<Response> response);
 	bool isValid() const;
 
 	const Block& getLastBlock() const;

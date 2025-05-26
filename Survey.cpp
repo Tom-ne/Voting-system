@@ -15,11 +15,11 @@ const Blockchain& Survey::getBlockchain() const
 	return this->blockchain;
 }
 
-void Survey::addResponse(std::unique_ptr<Response>& response)
+void Survey::addResponse(std::unique_ptr<Response> response)
 {
 	if (!response) {
 		throw std::runtime_error("Response cannot be null.");
 	}
 
-	this->blockchain.createBlock(response);
+	this->blockchain.createBlock(std::move(response));
 }

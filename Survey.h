@@ -10,7 +10,7 @@ public:
 	const SurveyMetadata& getSurveyMetadata() const;
 	const Blockchain& getBlockchain() const;
 
-	void addResponse(std::unique_ptr<Response>& response);
+	void addResponse(std::unique_ptr<Response> response);
 
 private:
 	SurveyMetadata meta;
