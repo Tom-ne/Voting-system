@@ -1,15 +1,16 @@
 #include "Blockchain.h"
 #include <stdexcept>
 #include <chrono>
+#include <iostream>
 
 Blockchain::Blockchain()
 {
 	// create the genesis block
-	auto genesisResponse = std::make_unique<Response>("{\"questionId\":0,\"userId\":0,\"selectedOption\":0,\"publicKey\":\"genesis\"}");
+	auto genesisResponse = std::make_unique<Response>(0, 0, 0, "gensis", 0);
 	this->blocks.push_back(std::make_unique<Block>(genesisResponse));
 }
 
-void Blockchain::createBlock(std::unique_ptr<Response>& response)
+void Blockchain::createBlock(std::unique_ptr<Response> response)
 {
 	const Block& previousBlock = this->getLastBlock();
 	std::uint64_t currentTime = getCurrentTimestamp();
@@ -20,6 +21,10 @@ void Blockchain::createBlock(std::unique_ptr<Response>& response)
 
 	auto newBlock = std::make_unique<Block>(response, previousBlock.hash());
 	newBlock->setTimestamp(currentTime);
+	// print the hash of the new block for debugging
+	std::cout << "Creating new block with hash: " << newBlock->hash() << std::endl;
+	std::cout << "Previous block hash: " << previousBlock.hash() << std::endl;
+	std::cout << response->toJson() << std::endl;
 	this->blocks.push_back(std::move(newBlock));
 }
 
