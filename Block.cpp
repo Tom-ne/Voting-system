@@ -1,58 +1,34 @@
 #include "Block.h"
 #include "SHA256.h"
 
-Block::Block(int index, std::vector<Answer> answers, const std::uint64_t timestamp, const std::string& previousHash, const std::string& signature)
+Block::Block(std::unique_ptr<Response>& response) : response(*response), timestamp(0), previousHash("")
 {
-	this->index = index;
-	this->answers = std::move(answers);
-	this->timestamp = timestamp;
-	this->previousHash = previousHash;
-	this->signature = signature;
-	this->hash = calculateHash();
 }
 
-const std::string Block::calculateHash() const
+Block::Block(std::unique_ptr<Response>& response, const std::string previousHash) : response(*response), timestamp(0), previousHash(previousHash)
 {
-	// step 1: create the block string
-	// the block string is the following format: {"index": <index>, "answers": [<answers>], "timestamp": <timestamp>, "previousHash": <previousHash>, "signature": <signature>}
-	std::string blockString = "{\"index\":" + std::to_string(index) + ",\"answers\":[";
-	for (size_t i = 0; i < answers.size(); i++)
-	{
-		blockString += answers[i].toJson();
-		if (i != answers.size() - 1)
-		{
-			blockString += ",";
-		}
-	}
-	blockString += "],\"timestamp\":" + std::to_string(timestamp) + ",\"previousHash\":\"" + previousHash + "\",\"signature\":\"" + signature + "\"}";
+}
 
-	// step 2: use SHA256 to hash the block string
+void Block::setTimestamp(uint64_t timestamp)
+{
+	this->timestamp = timestamp;
+}
+
+const std::string Block::hash() const
+{
+	// the hash of the block is made from the json of the response, the timestamp and the previous hash
+	std::string blockData = this->response.toJson() + std::to_string(this->timestamp) + this->previousHash;
 	SHA256 sha256;
-	sha256.update(blockString);
+	sha256.update(blockData);
 	return SHA256::toString(sha256.digest());
 }
 
-const int Block::getIndex() const
-{
-	return this->index;
-}
-
-const std::uint64_t Block::getTimestamp() const
+uint64_t Block::getTimestamp() const
 {
 	return this->timestamp;
 }
 
-const std::vector<Answer>& Block::getAnswers() const
-{
-	return this->answers;
-}
-
-const std::string& Block::getHash() const
-{
-	return this->hash;
-}
-
-const std::string& Block::getPreviousHash() const
+std::string Block::getPreviousHash() const
 {
 	return this->previousHash;
 }
