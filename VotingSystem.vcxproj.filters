@@ -51,6 +51,9 @@
     <ClCompile Include="VerifingUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ResponseManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">
@@ -81,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="SurveyMetadata.h">
       <Filter>Header Files\Chain</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponseManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

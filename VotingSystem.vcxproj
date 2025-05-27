@@ -136,6 +136,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Response.cpp" />
+    <ClCompile Include="ResponseManager.cpp" />
     <ClCompile Include="SHA256.cpp" />
     <ClCompile Include="SHA256.h" />
     <ClCompile Include="Survey.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Response.h" />
+    <ClInclude Include="ResponseManager.h" />
     <ClInclude Include="Survey.h" />
     <ClInclude Include="SurveyMetadata.h" />
     <ClInclude Include="VerifingUtils.h" />
