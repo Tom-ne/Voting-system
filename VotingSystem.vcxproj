@@ -133,6 +133,8 @@
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Blockchain.cpp" />
+    <ClCompile Include="EnterQuizHandler.cpp" />
+    <ClCompile Include="HandlerFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Response.cpp" />
@@ -148,6 +150,9 @@
   <ItemGroup>
     <ClInclude Include="Block.h" />
     <ClInclude Include="Blockchain.h" />
+    <ClInclude Include="EnterQuizHandler.h" />
+    <ClInclude Include="Handler.h" />
+    <ClInclude Include="HandlerFactory.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Response.h" />

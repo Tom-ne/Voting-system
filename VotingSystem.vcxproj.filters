@@ -13,14 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\hash">
-      <UniqueIdentifier>{273b8ee9-5926-4c24-9c6f-28f749390ab8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\hash">
-      <UniqueIdentifier>{12eae173-5a98-46b1-b306-20466ad52ec8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Chain">
       <UniqueIdentifier>{92a6051c-4385-4a20-98a0-c183cb6436b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Handlers">
+      <UniqueIdentifier>{65a34732-7ae2-4430-94f2-d69636738b8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Hash">
+      <UniqueIdentifier>{273b8ee9-5926-4c24-9c6f-28f749390ab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hash">
+      <UniqueIdentifier>{12eae173-5a98-46b1-b306-20466ad52ec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Chain">
+      <UniqueIdentifier>{483d8d5f-0d5e-49ca-8a33-b799e6036495}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,30 +34,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SHA256.h">
-      <Filter>Header Files\hash</Filter>
+      <Filter>Header Files\Hash</Filter>
     </ClCompile>
     <ClCompile Include="SHA256.cpp">
-      <Filter>Source Files\hash</Filter>
-    </ClCompile>
-    <ClCompile Include="Block.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Response.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Blockchain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Question.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Survey.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Hash</Filter>
     </ClCompile>
     <ClCompile Include="VerifingUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ResponseManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>Source Files\Chain</Filter>
+    </ClCompile>
+    <ClCompile Include="Blockchain.cpp">
+      <Filter>Source Files\Chain</Filter>
+    </ClCompile>
+    <ClCompile Include="Question.cpp">
+      <Filter>Source Files\Chain</Filter>
+    </ClCompile>
+    <ClCompile Include="Response.cpp">
+      <Filter>Source Files\Chain</Filter>
+    </ClCompile>
+    <ClCompile Include="Survey.cpp">
+      <Filter>Source Files\Chain</Filter>
+    </ClCompile>
+    <ClCompile Include="HandlerFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnterQuizHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,6 +98,15 @@
       <Filter>Header Files\Chain</Filter>
     </ClInclude>
     <ClInclude Include="ResponseManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HandlerFactory.h">
+      <Filter>Header Files\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handler.h">
+      <Filter>Header Files\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="EnterQuizHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
