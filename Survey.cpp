@@ -15,6 +15,11 @@ const Blockchain& Survey::getBlockchain() const
 	return this->blockchain;
 }
 
+void Survey::addQuestion(const Question& question)
+{
+	this->meta.questions.push_back(question);
+}
+
 void Survey::addResponse(std::unique_ptr<Response> response)
 {
 	if (!response) {
@@ -22,4 +27,14 @@ void Survey::addResponse(std::unique_ptr<Response> response)
 	}
 
 	this->blockchain.createBlock(std::move(response));
+}
+
+void Survey::setSurveyId(unsigned int id)
+{
+	this->surveyId = id;
+}
+
+const unsigned int& Survey::getSurveyId() const
+{
+	return this->surveyId;
 }
