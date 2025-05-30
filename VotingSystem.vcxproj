@@ -142,6 +142,7 @@
     <ClCompile Include="SHA256.cpp" />
     <ClCompile Include="SHA256.h" />
     <ClCompile Include="Survey.cpp" />
+    <ClCompile Include="SurveyManager.cpp" />
     <ClCompile Include="VerifingUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="Response.h" />
     <ClInclude Include="ResponseManager.h" />
     <ClInclude Include="Survey.h" />
+    <ClInclude Include="SurveyManager.h" />
     <ClInclude Include="SurveyMetadata.h" />
     <ClInclude Include="VerifingUtils.h" />
   </ItemGroup>

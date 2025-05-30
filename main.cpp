@@ -1,5 +1,5 @@
-﻿#include "VerifingUtils.h"
-#include "HandlerFactory.h"
+﻿#include "SurveyManager.h"
+#include <iostream>
 
 int main() {
 //	std::string signature = "CVoq3r8SSx43sQ6Un8kB974yP7mBoiNPRVvhZ4ZcJG9vh34x+f/gqiRIC/66WUSfLiePbcOLFscutvb6C73t7bJqoxnMkw5BbB9kSidL4i5Yt6ygY+g6ldCX0BGTp8FfZFxaJR+E6OZOW/QhXWTorpAw8gLUxh+EHglpvwlSzOObrtfQrFygZcF1I7pSGvvU+ddmfrWU+J7986kN/Yd/68J8jngVNv5RgeuUqduIKENv0wpiiyG6rYSpHRLDAzbAmKVq8wJuv6YwzjC6DwNpQsM9RsptHLBcgWgjYB3FWuoU3fR2IZRDu/oC6wkQoYCoku9hAu/krFFwLcmQ9v2P2w==";
@@ -19,15 +19,19 @@ int main() {
 //		std::cout << "Signature is invalid." << std::endl;
 //	}
 	// Example usage of the HandlerFactory and EnterQuizHandler
-	auto handlerFactory = std::make_shared<HandlerFactory>();
-	auto enterQuizHandler = handlerFactory->createEnterQuizHandler();
+	SurveyManager surveyManager;
 
-	if (enterQuizHandler->isRequestValid()) {
-		auto response = enterQuizHandler->handleRequest();
-		// Process the response as needed
-	} else {
-		// Handle invalid request
-	}
+	SurveyMetadata metadata;
+	metadata.surveyName = "Test Survey";
+	metadata.questions = {
+		Question(1, "What is the meaning of life?", {"Coding", "C++", "Fixing Errors", "42"}, 3),
+		Question(2, "What is the meaning of life?", {"Coding", "C++", "Fixing Errors", "42"}, 3),
+		Question(3, "What is the meaning of life?", {"Coding", "C++", "Fixing Errors", "42"}, 3),
+		Question(4, "What is the meaning of life?", {"Coding", "C++", "Fixing Errors", "42"}, 3),
+	};
+	surveyManager.createSurvey(metadata);
+	Survey& survey = surveyManager.getSurvey(1);
+	std::cout << "Survey ID: " << survey.getSurveyId() << std::endl;
 
 	return 0;
 }

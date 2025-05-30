@@ -1,11 +1,11 @@
 #include "Block.h"
 #include "SHA256.h"
 
-Block::Block(std::unique_ptr<Response>& response) : response(*response), timestamp(0), previousHash("")
+Block::Block(std::unique_ptr<Response> response) : response(*response), timestamp(0), previousHash("")
 {
 }
 
-Block::Block(std::unique_ptr<Response>& response, const std::string previousHash) : response(*response), timestamp(0), previousHash(previousHash)
+Block::Block(std::unique_ptr<Response> response, const std::string previousHash) : response(*response), timestamp(0), previousHash(previousHash)
 {
 }
 

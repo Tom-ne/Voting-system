@@ -7,7 +7,7 @@ Blockchain::Blockchain()
 {
 	// create the genesis block
 	auto genesisResponse = std::make_unique<Response>(0, 0, 0, "gensis", 0);
-	this->blocks.push_back(std::make_unique<Block>(genesisResponse));
+	this->blocks.push_back(std::make_unique<Block>(std::move(genesisResponse)));
 }
 
 void Blockchain::createBlock(std::unique_ptr<Response> response)
@@ -19,7 +19,7 @@ void Blockchain::createBlock(std::unique_ptr<Response> response)
 		throw std::runtime_error("Current timestamp is less than the last block's timestamp.");
 	}
 
-	auto newBlock = std::make_unique<Block>(response, previousBlock.hash());
+	auto newBlock = std::make_unique<Block>(std::move(response), previousBlock.hash());
 	newBlock->setTimestamp(currentTime);
 	this->blocks.push_back(std::move(newBlock));
 }

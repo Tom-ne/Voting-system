@@ -8,9 +8,9 @@ public:
 	SurveyManager();
 	~SurveyManager();
 
-	void createSurvey(Survey& survey);
+	void createSurvey(SurveyMetadata& metadata);
 	Survey& getSurvey(unsigned int surveyId);
 private:
-	std::vector<Survey> surveys;
+	std::vector<std::unique_ptr<Survey>> surveys;
 };
 

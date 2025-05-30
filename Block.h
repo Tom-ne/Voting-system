@@ -5,8 +5,8 @@
 class Block
 {
 public:
-	Block(std::unique_ptr<Response>& response);
-	Block(std::unique_ptr<Response>& response, const std::string previousHash);
+	Block(std::unique_ptr<Response> response);
+	Block(std::unique_ptr<Response> response, const std::string previousHash);
 
 	void setTimestamp(uint64_t timestamp);
 	const std::string hash() const;
